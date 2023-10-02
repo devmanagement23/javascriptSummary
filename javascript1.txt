@@ -1,0 +1,479 @@
+javascript variable hold address of location not the value
+-------------------
+
+// Numbers:
+let length = 16;
+let weight = 7.5;
+
+// Strings:
+let color = "Yellow";
+let lastName = "Johnson";
+
+// Booleans
+let x = true;
+let y = false;
+
+// Object:
+const person = {firstName:"John", lastName:"Doe"};
+
+// Array object:
+const cars = ["Saab", "Volvo", "BMW"];
+
+// Date object:
+const date = new Date("2022-03-25");
+
+--------------------------
+let a, b, c;  // Declare 3 variables
+a = 5;        // Assign the value 5 to a
+b = 6;        // Assign the value 6 to b
+c = a + b;    // Assign the sum of a and b to c
+
+let person = "Hege";
+let person="Hege";
+
+let x = y + z;
+
+var	Declares a variable
+let	Declares a block variable
+----------------
+In this example, x, y, and z are undeclared variables.
+
+x = 5;
+y = 6;
+z = x + y;
+
+---------------
+In this example, x, y, and z are declared variables.
+
+var x = 5;
+var y = 6;
+var z = x + y;
+
+let x = 5;
+let y = 6;
+let z = x + y;
+
+const x = 5;
+const y = 6;
+const z = x + y;
+---------------------
+
+One Statement, Many Variables
+
+let person = "John Doe", carName = "Volvo", price = 200;
+
+-----------------------
+javaScript evaluates expressions from left to right
+
+let x = 16 + 4 + "Volvo";       //20Volvo
+
+let x = "Volvo" + 16 + 4;       //Volvo164 
+
+-----------------------------
+Accessing a function without () returns 
+the function not the function result:
+
+function toCelsius(fahrenheit) {
+  return (5/9) * (fahrenheit-32);
+}
+
+let value1 = toCelsius();
+
+let value2 = toCelsius;
+
+---------------
+OBJECT datatype
+
+const person = {firstName:"John", lastName:"Doe", age:50, eyeColor:"blue"};
+
+or
+
+const person = {
+  firstName: "John",
+  lastName: "Doe",
+  age: 50,
+  eyeColor: "blue"
+};
+
+// function also declare in object datatype as property
+
+const person2 = {
+  firstName: "John",
+  lastName : "Doe",
+  id       : 5566,
+  fullName : function() {
+    return this.firstName + " " + this.lastName;
+  }
+};
+
+//calling
+name = person.fullName();
+
+vs
+
+name = person.fullName;
+
+---------------------
+
+some examples of HTML events:
+
+An HTML web page has finished loading
+An HTML input field was changed
+An HTML button was clicked
+
+HTML allows event handler attributes, with JavaScript code, 
+                              to be added to HTML elements.
+ 
+syntax 
+<element event="some JavaScript">
+
+<button onclick="document.getElementById('demo').innerHTML = Date()">
+                                            The time is?</button>
+                                            
+<button onclick="this.innerHTML = Date()">The time is?</button>
+
+--------------
+
+<button onclick="displayDate()">The time is?</button>
+
+<script>
+function displayDate() {
+  document.getElementById("demo").innerHTML = Date();
+}
+</script> 
+
+-------------------
+ARRAYS
+
+way1
+const cars = ["Saab", "Volvo", "BMW"];
+
+It is a common practice to declare arrays with the const keyword.
+
+way2
+const cars = [];
+cars[0]= "Saab";
+cars[1]= "Volvo";
+cars[2]= "BMW";
+
+way3
+const cars = new Array("Saab", "Volvo", "BMW");
+-------------------
+
+Converting an Array to a String
+
+const fruits = ["Banana", "Orange", "Apple", "Mango"];
+document.getElementById("demo").innerHTML = fruits.toString();
+
+return result with commas -- Banana,Orange,Apple,Mango
+
+
+----------------
+LOOPING ARRAY ELEMENT
+
+const fruits = ["Banana", "Orange", "Apple", "Mango"];
+let fLen = fruits.length;
+
+let text = "<ul>";
+for (let i = 0; i < fLen; i++) {
+  text += "<li>" + fruits[i] + "</li>";
+}
+
+-------------------------------
+The forEach() method calls a function (a callback function) 
+once for each array element
+
+we can use foreach but with special care
+
+let text2 = "<ul>";
+fruits.forEach(myFunction);
+text2 += "</ul>";
+
+function myFunction(value) {
+  text2 += "<li>" + value + "</li>";
+}
+
+------------------
+add a new element to an array
+
+const fruits = ["Banana", "Orange", "Apple"];
+fruits.push("Lemon");
+
+element can also be added to an array using the length property
+
+const fruits = ["Banana", "Orange", "Apple"];
+fruits[fruits.length] = "Lemon";
+
+---------------------------------
+Arrays with named indexes are called associative arrays (or hashes)
+JavaScript does not support associative arrays
+
+----------------------
+
+const points = new Array();
+const points = [];
+const points = new Array(40, 100, 1, 5, 25, 10);
+const points = [40, 100, 1, 5, 25, 10];
+
+--------------------------
+A Common Error
+
+const points = [40];   //Create an array with one element
+
+is not the same as:
+
+const points = new Array(40); //Create an array with 40 undefined elements:
+-------------------
+How do I know if a variable is an array?
+
+const fruits = ["Banana", "Orange", "Apple"];
+
+//1
+Array.isArray(fruits);     or
+
+//2
+fruits instanceof Array;
+
+-------------------------------
+if (time < 10) {
+  greeting = "Good morning";
+} else if (time < 20) {
+  greeting = "Good day";
+} else {
+  greeting = "Good evening";
+}
+
+------------------------
+switch (new Date().getDay()) {
+  case 6:
+    text = "Today is Saturday";
+    break;
+  case 0:
+    text = "Today is Sunday";
+    break;
+  default:
+    text = "Looking forward to the Weekend";
+}
+
+------------------------
+you will want different switch cases to use the same code.
+
+In this example 4 and 5 share the same code block, 
+and 0 and 6 share same code block:
+
+switch (new Date().getDay()) {
+  case 4:
+  case 5:
+    text = "Soon it is Weekend";
+    break;
+  case 0:
+  case 6:
+    text = "It is Weekend";
+    break;
+  default:
+    text = "Looking forward to the Weekend";
+}
+
+---------------------
+for loop
+
+for (let i = 0; i < cars.length; i++) {
+  text += cars[i] + "<br>";
+}
+
+ you can omit expression 1 like below
+ 
+let i = 2;
+let len = cars.length;
+let text = "";
+for (; i < len; i++) {
+  text += cars[i] + "<br>";
+}
+
+-----------------
+FOR IN LOOP ------ iterate over keys
+
+const person = {fname:"John", lname:"Doe", age:25};
+
+let text = "";
+for (let x in person) {
+  text += person[x];
+}
+__________
+
+const numbers = [45, 4, 9, 16, 25];
+
+let txt = "";
+for (let x in numbers) {
+  txt += numbers[x];
+}
+-----------------
+FOR OF LOOP ------ iterate over values
+
+const cars = ["BMW", "Volvo", "Mini"];
+
+let text = "";
+for (let x of cars) {
+  text += x;
+}
+
+--------------------
+FOR EACH LOOP
+
+const numbers = [45, 4, 9, 16, 25];
+
+let txt = "";
+numbers.forEach(myFunction);
+
+function myFunction(value, index, array) {
+  txt += value;
+}
+
+---------------------
+
+while (i < 10) {
+  text += "The number is " + i;
+  i++;
+}
+---------------------
+do {
+  text += "The number is " + i;
+  i++;
+}
+while (i < 10);
+----------------
+
+BREAK VS CONTINUE
+
+for (let i = 0; i < 10; i++) {
+  if (i === 3) { break; }
+  text += "The number is " + i + "<br>";
+}
+----------------------
+SET
+
+const letters = new Set(["a","b","c"]);
+
+OR
+
+const letters2 = new Set();
+
+// Add Values to the Set
+letters2.add("a");
+letters2.add("b");
+letters2.add("c");
+-------------------------------
+getting all values of set
+
+foreach() vs value()
+
+// Create a Set
+const letters = new Set(["a","b","c"]);
+
+1)
+let text = "";
+letters.forEach (function(value) {
+  text += value;
+})
+
+2)
+let text = "";
+for (const x of letters.values()) {
+  text += x;
+}
+-----------------------------
+
+MAP
+
+// Create a Map
+const fruits = new Map([
+  ["apples", 500],
+  ["bananas", 300],
+  ["oranges", 200]
+]);
+
+OR
+
+// Create a Map
+const fruits = new Map();
+
+// Set Map Values
+fruits.set("apples", 500);
+fruits.set("bananas", 300);
+fruits.set("oranges", 200);
+
+--------------------------
+GETTING VALUES 
+
+FOREACH VS ENTERIES()
+
+// List all entries
+let text = "";
+fruits.forEach (function(value, key) {
+  text += key + ' = ' + value;
+})
+
+OR
+
+// List all entries
+let text = "";
+for (const x of fruits.entries()) {
+  text += x;
+}
+
+--------------------
+ARRAY FUNCTION
+
+Before Arrow
+
+hello = function() {
+  return "Hello World!";
+}
+
+With Arrow Function
+
+hello = () => {
+  return "Hello World!";
+}
+
+or
+
+hello = () => "Hello World!";
+---------------------
+
+let calculateTotal = function(a,b){
+                        return a*b
+                      }
+OR
+
+let calculateTotal = (a, b) => a * b;
+
+---------------------------------------
+CLASSES---CONSTRUCTOR---CLASS FUNCTION
+
+class Car {
+
+  constructor(name, year) {
+    this.name = name;
+    this.year = year;
+  }
+  
+  age(x) {
+    return x - this.year;
+  }
+}
+
+const date = new Date();
+let currentYear = date.getFullYear();
+
+//CREATING OBJECT
+const myCar = new Car("Ford", 2014);
+
+document.getElementById("demo").innerHTML=
+"My car is " + myCar.age(currentYear) + " years old.";
+
+
+
+
+
+
