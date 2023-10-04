@@ -1,1 +1,17 @@
 This is for practice of test codes
+
+// finding divisor effecient way wrt to time and space complexity
+function printdivisors(n) {
+    for (let i = 0; i <= Math.sqrt(n); i++) {
+        if (n % i == 0) {
+
+            if (n / i == i) {
+                console.log(i);
+            } else {
+                console.log(i, n / i);
+            }
+        }
+    }
+}
+
+printdivisors(16);
